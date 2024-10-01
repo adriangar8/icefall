@@ -32,7 +32,7 @@ node_modules
 .sass-cache
 
 # Ignore /own folder due to excesive memory consumption
-/mnt/ahogpu_ldisk2/adriang/icefall/egs/basque_parliament_1_gttsehu/ASR/own
+egs/basque_parliament_1_gttsehu/ASR/own/
 
 *.param
 *.bin

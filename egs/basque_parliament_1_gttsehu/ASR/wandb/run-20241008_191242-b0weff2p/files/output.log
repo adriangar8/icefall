@@ -7160,3 +7160,12 @@
 2024-10-09 11:39:31,855 INFO [scaling.py:214] ScheduledFloat: name=encoder.encoders.5.encoder.layers.0.conv_module2.balancer2.prob, batch_count=13033.333333333334, ans=0.125
 2024-10-09 11:39:39,148 INFO [train.py:1152] Epoch 6, batch 4850, loss[loss=0.272, ctc_loss=0.1861, attn_decoder_loss=0.2935, over 4848.00 frames. ], tot_loss[loss=0.254, ctc_loss=0.1773, attn_decoder_loss=0.2731, over 966552.15 frames. ], batch size: 28, lr: 1.48e-02,
 2024-10-09 11:39:43,568 INFO [scaling.py:214] ScheduledFloat: name=encoder.encoders.0.layers.0.conv_module1.balancer1.prob, batch_count=13036.666666666666, ans=0.125
+2024-10-09 11:40:07,732 INFO [scaling.py:1024] Whitening: name=encoder.encoders.4.encoder.layers.2.self_attn1.whiten, num_groups=1, num_channels=384, metric=20.33 vs. limit=17.2825
+2024-10-09 11:40:20,872 INFO [scaling.py:1024] Whitening: name=encoder.encoders.3.encoder.layers.3.self_attn2.whiten, num_groups=1, num_channels=512, metric=20.13 vs. limit=17.2825
+2024-10-09 11:40:21,724 INFO [scaling.py:214] ScheduledFloat: name=encoder.encoders.2.encoder.layers.1.self_attn_weights.pos_emb_skip_rate, batch_count=13046.666666666666, ans=0.0
+2024-10-09 11:40:23,114 INFO [scaling.py:214] ScheduledFloat: name=encoder.encoders.0.layers.1.feed_forward1.hidden_balancer.prob, batch_count=13046.666666666666, ans=0.125
+2024-10-09 11:40:23,159 INFO [scaling.py:214] ScheduledFloat: name=encoder.encoders.3.encoder.layers.0.ff2_skip_rate, batch_count=13046.666666666666, ans=0.008033333333333333
+2024-10-09 11:40:34,895 INFO [scaling.py:214] ScheduledFloat: name=encoder.encoders.5.encoder.layers.1.conv_module2.balancer2.prob, batch_count=13046.666666666666, ans=0.125
+2024-10-09 11:40:46,144 INFO [scaling.py:1024] Whitening: name=encoder.encoders.0.layers.1.nonlin_attention.whiten1, num_groups=1, num_channels=144, metric=7.08 vs. limit=8.2625
+2024-10-09 11:40:52,397 INFO [train.py:1152] Epoch 6, batch 4900, loss[loss=0.2278, ctc_loss=0.1384, attn_decoder_loss=0.2502, over 4861.00 frames. ], tot_loss[loss=0.2535, ctc_loss=0.1767, attn_decoder_loss=0.2727, over 967209.03 frames. ], batch size: 21, lr: 1.48e-02,
+2024-10-09 11:41:03,634 INFO [scaling.py:1024] Whitening: name=encoder.encoders.3.encoder.layers.1.nonlin_attention.whiten1, num_groups=1, num_channels=384, metric=8.14 vs. limit=8.263333333333334

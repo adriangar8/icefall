@@ -1,0 +1,18 @@
+{"time":"2024-10-07T13:49:36.190568834+02:00","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-07T13:49:36.19060401+02:00","level":"INFO","msg":"created symlink","path":"/mnt/ahogpu_ldisk2/adriang/icefall/egs/basque_parliament_1_gttsehu/ASR/wandb/run-20241007_134936-47bpceys/logs/debug-core.log"}
+{"time":"2024-10-07T13:49:36.224887724+02:00","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-07T13:49:36.231982085+02:00","level":"INFO","msg":"created new stream","id":"47bpceys"}
+{"time":"2024-10-07T13:49:36.232019767+02:00","level":"INFO","msg":"stream: started","id":"47bpceys"}
+{"time":"2024-10-07T13:49:36.232032957+02:00","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"47bpceys"}}
+{"time":"2024-10-07T13:49:36.232040973+02:00","level":"INFO","msg":"sender: started","stream_id":{"value":"47bpceys"}}
+{"time":"2024-10-07T13:49:36.23205491+02:00","level":"INFO","msg":"handler: started","stream_id":{"value":"47bpceys"}}
+{"time":"2024-10-07T13:49:36.548916248+02:00","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-07T13:49:36.550370294+02:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-07T19:37:37.212708271+02:00","level":"INFO","msg":"api: retrying HTTP error","status":502,"url":"https://api.wandb.ai/files/adriangarc8/Zipformer/47bpceys/file_stream"}
+{"time":"2024-10-07T21:51:12.001705776+02:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": context deadline exceeded"}
+{"time":"2024-10-07T21:56:59.673785526+02:00","level":"INFO","msg":"api: retrying HTTP error","status":502,"url":"https://api.wandb.ai/files/adriangarc8/Zipformer/47bpceys/file_stream"}
+{"time":"2024-10-08T11:38:37.986773318+02:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/adriangarc8/Zipformer/47bpceys/file_stream"}
+{"time":"2024-10-08T11:38:55.698946839+02:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"}
+{"time":"2024-10-08T11:39:26.216830041+02:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/adriangarc8/Zipformer/47bpceys/file_stream"}
+{"time":"2024-10-08T11:58:11.293179288+02:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": context deadline exceeded"}
+{"time":"2024-10-08T13:57:15.561782128+02:00","level":"INFO","msg":"api: retrying HTTP error","status":502,"url":"https://api.wandb.ai/files/adriangarc8/Zipformer/47bpceys/file_stream"}

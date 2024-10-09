@@ -1,0 +1,160 @@
+2024-10-07 13:59:07,548 INFO [train.py:1231] Training started
+2024-10-07 13:59:07,549 INFO [train.py:1241] Device: cuda:0
+2024-10-07 13:59:07,550 INFO [train.py:1272] Using dtype=torch.float32
+2024-10-07 13:59:07,550 INFO [train.py:1273] Use AMP=False
+2024-10-07 13:59:07,551 INFO [train.py:1275] {'best_train_loss': inf, 'best_valid_loss': inf, 'best_train_epoch': -1, 'best_valid_epoch': -1, 'batch_idx_train': 0, 'log_interval': 50, 'reset_interval': 200, 'valid_interval': 3000, 'feature_dim': 80, 'subsampling_factor': 4, 'ignore_id': -1, 'label_smoothing': 0.1, 'warm_step': 2000, 'env_info': {'k2-version': '1.24.3', 'k2-build-type': 'Release', 'k2-with-cuda': True, 'k2-git-sha1': 'e400fa3b456faf8afe0ee5bfe572946b4921a3db', 'k2-git-date': 'Sat Jul 15 04:21:50 2023', 'lhotse-version': '1.25.0', 'torch-version': '2.0.1+cu118', 'torch-cuda-available': True, 'torch-cuda-version': '11.8', 'python-version': '3.9', 'icefall-git-branch': 'master', 'icefall-git-sha1': 'cabeaf7f-dirty', 'icefall-git-date': 'Thu Oct 3 12:53:52 2024', 'icefall-path': '/mnt/ahogpu_ldisk2/adriang/icefall', 'k2-path': '/mnt/ahogpu_ldisk2/adriang/anaconda3/envs/icefall/lib/python3.9/site-packages/k2/__init__.py', 'lhotse-path': '/mnt/ahogpu_ldisk2/adriang/anaconda3/envs/icefall/lib/python3.9/site-packages/lhotse/__init__.py', 'hostname': 'ahogpu', 'IP address': '192.168.1.130'}, 'world_size': 1, 'master_port': 12354, 'tensorboard': True, 'num_epochs': 30, 'start_epoch': 1, 'start_batch': 0, 'exp_dir': PosixPath('zipformer/exp'), 'bpe_model': '/mnt/ahogpu_ldisk2/adriang/icefall/egs/basque_parliament_1_gttsehu/ASR/data/lang_bpe_256/bpe.model', 'base_lr': 0.045, 'lr_batches': 7500, 'lr_epochs': 3.5, 'ref_duration': 600, 'context_size': 2, 'prune_range': 5, 'lm_scale': 0.25, 'am_scale': 0.0, 'simple_loss_scale': 0.5, 'ctc_loss_scale': 1.0, 'attention_decoder_loss_scale': 0.8, 'seed': 42, 'print_diagnostics': False, 'inf_check': False, 'save_every_n': 4000, 'keep_last_k': 30, 'average_period': 200, 'use_bf16': False, 'use_fp16': False, 'num_encoder_layers': '2,2,3,4,3,2', 'downsampling_factor': '1,2,4,8,4,2', 'feedforward_dim': '512,768,1024,1536,1024,768', 'num_heads': '4,4,4,8,4,4', 'encoder_dim': '192,256,384,512,384,256', 'query_head_dim': '32', 'value_head_dim': '12', 'pos_head_dim': '4', 'pos_dim': 48, 'encoder_unmasked_dim': '192,192,256,256,256,192', 'cnn_module_kernel': '31,31,15,15,15,31', 'decoder_dim': 512, 'joiner_dim': 512, 'attention_decoder_dim': 512, 'attention_decoder_num_layers': 6, 'attention_decoder_attention_dim': 512, 'attention_decoder_num_heads': 8, 'attention_decoder_feedforward_dim': 2048, 'causal': False, 'chunk_size': '16,32,64,-1', 'left_context_frames': '64,128,256,-1', 'use_transducer': False, 'use_ctc': True, 'use_attention_decoder': False, 'manifest_dir': PosixPath('/mnt/ahogpu_ldisk2/adriang/icefall/egs/basque_parliament_1_gttsehu/ASR/data/fbank'), 'max_duration': 200.0, 'bucketing_sampler': True, 'num_buckets': 30, 'concatenate_cuts': False, 'duration_factor': 1.0, 'gap': 1.0, 'on_the_fly_feats': False, 'shuffle': True, 'drop_last': True, 'return_cuts': True, 'num_workers': 2, 'enable_spec_aug': True, 'spec_aug_time_warp_factor': 80, 'enable_musan': True, 'input_strategy': 'PrecomputedFeatures', 'blank_id': 0, 'sos_id': 1, 'eos_id': 1, 'vocab_size': 256, 'dtype': torch.float32, 'use_autocast': False}
+2024-10-07 13:59:07,551 INFO [train.py:1277] About to create model
+2024-10-07 13:59:07,930 INFO [train.py:1281] Number of model parameters: 64125431
+2024-10-07 13:59:09,558 INFO [train.py:1299] Using single GPU
+2024-10-07 13:59:09,573 INFO [custom_asr_data_module.py:394] About to load train cuts
+2024-10-07 13:59:09,573 INFO [custom_asr_data_module.py:204] Enable MUSAN
+2024-10-07 13:59:09,574 INFO [custom_asr_data_module.py:205] About to get Musan cuts
+2024-10-07 13:59:11,074 INFO [custom_asr_data_module.py:234] Enable SpecAugment
+2024-10-07 13:59:11,074 INFO [custom_asr_data_module.py:235] Time warp factor: 80
+2024-10-07 13:59:11,075 INFO [custom_asr_data_module.py:245] Num frame mask: 10
+2024-10-07 13:59:11,076 INFO [custom_asr_data_module.py:260] About to create train dataset
+2024-10-07 13:59:11,076 INFO [custom_asr_data_module.py:287] Using DynamicBucketingSampler.
+2024-10-07 13:59:11,455 INFO [custom_asr_data_module.py:304] About to create train dataloader
+2024-10-07 13:59:11,455 INFO [custom_asr_data_module.py:402] About to load valid cuts
+2024-10-07 13:59:11,456 INFO [custom_asr_data_module.py:338] About to create dev dataset
+2024-10-07 13:59:11,477 INFO [custom_asr_data_module.py:355] About to create dev dataloader
+2024-10-07 13:59:11,478 INFO [train.py:1491] Sanity check -- see if any of the batches in epoch 1 would cause OOM.
+/mnt/ahogpu_ldisk2/adriang/anaconda3/envs/icefall/lib/python3.9/site-packages/torch/nn/modules/conv.py:459: UserWarning: Applied workaround for CuDNN issue, install nvrtc.so (Triggered internally at ../aten/src/ATen/native/cudnn/Conv_v8.cpp:80.)
+  return F.conv2d(input, weight, bias, self.stride,
+2024-10-07 13:59:44,327 INFO [scaling.py:1024] Whitening: name=None, num_groups=1, num_channels=384, metric=85.16 vs. limit=7.5
+2024-10-07 13:59:44,589 INFO [train.py:1519] Maximum memory allocated so far is 4427MB
+2024-10-07 13:59:45,390 INFO [train.py:1519] Maximum memory allocated so far is 4554MB
+2024-10-07 13:59:46,224 INFO [train.py:1519] Maximum memory allocated so far is 4554MB
+2024-10-07 13:59:46,731 INFO [scaling.py:1024] Whitening: name=None, num_groups=1, num_channels=512, metric=86.03 vs. limit=7.5
+2024-10-07 13:59:47,020 INFO [train.py:1519] Maximum memory allocated so far is 4554MB
+2024-10-07 13:59:47,845 INFO [train.py:1519] Maximum memory allocated so far is 4554MB
+2024-10-07 13:59:48,398 INFO [scaling.py:1024] Whitening: name=None, num_groups=1, num_channels=384, metric=89.03 vs. limit=5.0
+2024-10-07 13:59:48,673 INFO [train.py:1519] Maximum memory allocated so far is 4554MB
+2024-10-07 14:00:00,460 INFO [scaling.py:1024] Whitening: name=encoder.encoders.1.encoder.layers.0.self_attn1.whiten, num_groups=1, num_channels=256, metric=24.93 vs. limit=7.5
+2024-10-07 14:00:00,755 INFO [train.py:1153] Epoch 1, batch 0, loss[loss=4.185, ctc_loss=4.185, over 4853.00 frames. ], tot_loss[loss=4.185, ctc_loss=4.185, over 4853.00 frames. ], batch size: 19, lr: 2.25e-02,
+2024-10-07 14:00:00,755 INFO [train.py:1176] Computing validation loss
+2024-10-07 14:00:05,030 INFO [train.py:1185] Epoch 1, validation: loss=4.288, ctc_loss=4.288, over 90464.00 frames.
+2024-10-07 14:00:05,031 INFO [train.py:1186] Maximum memory allocated so far is 4554MB
+2024-10-07 14:00:06,149 INFO [scaling.py:1024] Whitening: name=encoder.encoders.4.encoder.layers.0.whiten, num_groups=1, num_channels=384, metric=15.16 vs. limit=4.0
+2024-10-07 14:00:06,262 INFO [scaling.py:1024] Whitening: name=encoder.encoders.2.encoder.layers.2.feed_forward1.out_whiten, num_groups=1, num_channels=384, metric=10.76 vs. limit=7.5
+2024-10-07 14:00:07,160 INFO [scaling.py:1024] Whitening: name=encoder.encoders.1.encoder.layers.0.feed_forward3.out_whiten, num_groups=1, num_channels=256, metric=6.59 vs. limit=7.5
+2024-10-07 14:00:07,545 INFO [scaling.py:214] ScheduledFloat: name=encoder.encoders.2.encoder.layers.1.ff3_skip_rate, batch_count=0.0, ans=0.1
+2024-10-07 14:00:07,679 INFO [scaling.py:1024] Whitening: name=encoder.encoders.5.encoder.layers.1.conv_module1.whiten, num_groups=1, num_channels=256, metric=10.78 vs. limit=7.5
+2024-10-07 14:00:08,815 INFO [scaling.py:1024] Whitening: name=encoder.encoders.0.layers.1.self_attn1.whiten, num_groups=1, num_channels=192, metric=18.05 vs. limit=7.5
+2024-10-07 14:00:10,981 INFO [scaling.py:1024] Whitening: name=encoder.encoders.4.encoder.layers.1.self_attn2.whiten, num_groups=1, num_channels=384, metric=32.90 vs. limit=7.5
+2024-10-07 14:00:11,580 INFO [scaling.py:214] ScheduledFloat: name=encoder.encoders.0.layers.0.bypass.skip_rate, batch_count=0.0, ans=0.5
+2024-10-07 14:00:13,625 INFO [scaling.py:1024] Whitening: name=encoder.encoders.3.encoder.layers.1.self_attn_weights.whiten_keys, num_groups=8, num_channels=256, metric=3.05 vs. limit=3.0
+2024-10-07 14:00:14,935 WARNING [optim.py:487] Clipping_scale=2.0, grad-norm quartiles 6.099e+02 7.414e+02 1.353e+03 1.773e+03 2.538e+03, threshold=5.410e+03, percent-clipped=0.0
+2024-10-07 14:00:15,995 INFO [scaling.py:214] ScheduledFloat: name=encoder.encoders.2.encoder.layers.0.bypass_mid.scale_min, batch_count=3.3333333333333335, ans=0.8998833333333334
+2024-10-07 14:00:18,121 INFO [scaling.py:1024] Whitening: name=encoder.encoders.2.encoder.layers.2.feed_forward3.out_whiten, num_groups=1, num_channels=384, metric=18.00 vs. limit=7.50125
+2024-10-07 14:00:19,876 INFO [scaling.py:1024] Whitening: name=encoder.encoders.3.encoder.layers.1.nonlin_attention.whiten2, num_groups=1, num_channels=512, metric=20.58 vs. limit=5.001666666666667
+2024-10-07 14:00:23,805 WARNING [optim.py:487] Clipping_scale=2.0, grad-norm quartiles 5.829e+02 7.414e+02 1.258e+03 1.773e+03 4.600e+03, threshold=5.031e+03, percent-clipped=0.0
+2024-10-07 14:00:24,115 INFO [scaling.py:1024] Whitening: name=encoder.encoders.5.encoder.layers.0.whiten, num_groups=1, num_channels=256, metric=15.62 vs. limit=4.002666666666666
+2024-10-07 14:00:25,905 INFO [scaling.py:1024] Whitening: name=encoder.encoders.5.encoder.layers.0.whiten, num_groups=1, num_channels=256, metric=15.00 vs. limit=4.002666666666666
+2024-10-07 14:00:26,712 INFO [scaling.py:214] ScheduledFloat: name=encoder.encoders.3.encoder.layers.0.feed_forward1.out_proj.dropout_p, batch_count=6.666666666666667, ans=0.29993333333333333
+2024-10-07 14:00:29,630 INFO [scaling.py:1024] Whitening: name=encoder.encoders.5.encoder.layers.0.self_attn1.whiten, num_groups=1, num_channels=256, metric=16.62 vs. limit=7.505
+2024-10-07 14:00:31,740 INFO [scaling.py:1024] Whitening: name=encoder.encoders.1.encoder.layers.1.conv_module2.whiten, num_groups=1, num_channels=256, metric=25.88 vs. limit=7.5025
+2024-10-07 14:00:42,091 WARNING [optim.py:487] Clipping_scale=2.0, grad-norm quartiles 2.681e+02 7.273e+02 1.047e+03 1.618e+03 4.600e+03, threshold=4.189e+03, percent-clipped=0.0
+2024-10-07 14:00:44,187 INFO [scaling.py:214] ScheduledFloat: name=encoder.encoders.5.encoder.layers.1.whiten.whitening_limit, batch_count=13.333333333333334, ans=4.005333333333334
+2024-10-07 14:00:46,842 INFO [scaling.py:214] ScheduledFloat: name=encoder.encoders.1.encoder.layers.0.balancer2.prob, batch_count=13.333333333333334, ans=0.499375
+2024-10-07 14:00:51,842 INFO [train.py:1153] Epoch 1, batch 50, loss[loss=1.149, ctc_loss=1.149, over 4912.00 frames. ], tot_loss[loss=1.986, ctc_loss=1.986, over 217782.93 frames. ], batch size: 19, lr: 2.48e-02,
+2024-10-07 14:00:55,601 INFO [scaling.py:1024] Whitening: name=encoder.encoders.0.layers.1.conv_module2.whiten, num_groups=1, num_channels=192, metric=33.59 vs. limit=7.50625
+2024-10-07 14:00:59,527 INFO [scaling.py:1024] Whitening: name=encoder.encoders.2.encoder.layers.0.conv_module2.whiten, num_groups=1, num_channels=384, metric=19.05 vs. limit=7.50625
+2024-10-07 14:01:02,479 INFO [scaling.py:214] ScheduledFloat: name=encoder.encoders.3.encoder.layers.1.whiten.whitening_limit, batch_count=20.0, ans=4.008
+2024-10-07 14:01:05,316 INFO [scaling.py:1024] Whitening: name=encoder.encoders.5.encoder.layers.0.conv_module2.whiten, num_groups=1, num_channels=256, metric=27.89 vs. limit=7.5075
+2024-10-07 14:01:06,755 INFO [scaling.py:1024] Whitening: name=encoder.encoders.0.layers.1.nonlin_attention.whiten2, num_groups=1, num_channels=192, metric=105.10 vs. limit=5.01
+2024-10-07 14:01:13,409 INFO [scaling.py:1024] Whitening: name=encoder.encoders.4.encoder.layers.2.conv_module2.whiten, num_groups=1, num_channels=384, metric=23.58 vs. limit=7.50875
+2024-10-07 14:01:14,602 INFO [scaling.py:1024] Whitening: name=encoder.encoders.2.encoder.layers.1.whiten, num_groups=1, num_channels=384, metric=26.43 vs. limit=4.009333333333333
+2024-10-07 14:01:24,510 INFO [scaling.py:1024] Whitening: name=encoder.encoders.0.layers.0.nonlin_attention.whiten2, num_groups=1, num_channels=192, metric=69.62 vs. limit=5.013333333333334
+2024-10-07 14:01:25,367 INFO [scaling.py:1024] Whitening: name=encoder.encoders.2.encoder.layers.0.self_attn2.whiten, num_groups=1, num_channels=384, metric=34.64 vs. limit=7.52
+2024-10-07 14:01:25,886 INFO [scaling.py:214] ScheduledFloat: name=encoder.encoders.1.encoder.layers.0.conv_module2.balancer2.prob, batch_count=26.666666666666668, ans=0.49875
+2024-10-07 14:01:25,920 INFO [scaling.py:214] ScheduledFloat: name=encoder.encoders.3.encoder.layers.0.feed_forward1.hidden_balancer.prob, batch_count=26.666666666666668, ans=0.49875
+2024-10-07 14:01:31,587 INFO [scaling.py:1024] Whitening: name=encoder.encoders.0.layers.1.feed_forward1.out_whiten, num_groups=1, num_channels=192, metric=69.09 vs. limit=7.51
+2024-10-07 14:01:37,049 INFO [scaling.py:214] ScheduledFloat: name=encoder.encoders.1.encoder.layers.0.ff3_skip_rate, batch_count=30.0, ans=0.09932500000000001
+2024-10-07 14:01:41,549 INFO [scaling.py:1024] Whitening: name=encoder.encoders.3.encoder.layers.2.feed_forward1.out_whiten, num_groups=1, num_channels=512, metric=132.18 vs. limit=7.51125
+2024-10-07 14:01:42,569 INFO [scaling.py:1024] Whitening: name=encoder.encoders.3.encoder.layers.2.nonlin_attention.whiten2, num_groups=1, num_channels=512, metric=26.50 vs. limit=5.015
+2024-10-07 14:01:44,090 WARNING [optim.py:487] Clipping_scale=2.0, grad-norm quartiles 5.114e+01 1.956e+02 4.101e+02 8.350e+02 4.600e+03, threshold=8.201e+02, percent-clipped=0.0
+2024-10-07 14:01:44,130 INFO [train.py:1153] Epoch 1, batch 100, loss[loss=1.073, ctc_loss=1.073, over 4752.00 frames. ], tot_loss[loss=1.523, ctc_loss=1.523, over 383572.91 frames. ], batch size: 19, lr: 2.70e-02,
+2024-10-07 14:01:46,700 INFO [scaling.py:1024] Whitening: name=encoder.encoders.2.encoder.layers.2.feed_forward1.out_whiten, num_groups=1, num_channels=384, metric=73.56 vs. limit=7.5125
+2024-10-07 14:01:52,422 INFO [scaling.py:214] ScheduledFloat: name=encoder.encoders.2.encoder.layers.1.conv_module2.balancer2.prob, batch_count=33.333333333333336, ans=0.4984375
+2024-10-07 14:02:14,462 INFO [scaling.py:1024] Whitening: name=encoder.encoders.2.encoder.layers.1.feed_forward2.out_whiten, num_groups=1, num_channels=384, metric=98.07 vs. limit=7.51625
+2024-10-07 14:02:16,369 INFO [scaling.py:1024] Whitening: name=encoder.encoders.3.encoder.layers.3.conv_module2.whiten, num_groups=1, num_channels=512, metric=34.16 vs. limit=7.51625
+2024-10-07 14:02:17,576 INFO [scaling.py:1024] Whitening: name=encoder.encoders.2.encoder.layers.0.feed_forward2.out_whiten, num_groups=1, num_channels=384, metric=167.39 vs. limit=7.51625
+2024-10-07 14:02:20,874 INFO [scaling.py:1024] Whitening: name=encoder.encoders.1.encoder.layers.0.nonlin_attention.whiten1, num_groups=1, num_channels=192, metric=43.42 vs. limit=5.010833333333333
+2024-10-07 14:02:21,650 INFO [scaling.py:1024] Whitening: name=encoder.encoders.3.encoder.layers.3.feed_forward2.out_whiten, num_groups=1, num_channels=512, metric=40.36 vs. limit=7.51625
+2024-10-07 14:02:25,351 INFO [scaling.py:214] ScheduledFloat: name=encoder.encoders.1.encoder.layers.0.nonlin_attention.balancer.max_positive, batch_count=46.666666666666664, ans=0.7504666666666666
+2024-10-07 14:02:25,618 INFO [scaling.py:1024] Whitening: name=encoder.encoders.4.encoder.layers.2.self_attn2.whiten, num_groups=1, num_channels=384, metric=44.40 vs. limit=7.535
+2024-10-07 14:02:31,532 INFO [scaling.py:214] ScheduledFloat: name=encoder.encoders.2.encoder.layers.2.conv_module2.balancer1.prob, batch_count=46.666666666666664, ans=0.4978125
+2024-10-07 14:02:33,604 INFO [scaling.py:1120] WithLoss: name=encoder.encoders.2.encoder.layers.2.self_attn_weights, loss-sum=0.000e+00
+2024-10-07 14:02:33,860 INFO [scaling.py:1024] Whitening: name=encoder.encoders.3.encoder.layers.3.conv_module2.whiten, num_groups=1, num_channels=512, metric=37.49 vs. limit=7.5175
+2024-10-07 14:02:35,207 INFO [scaling.py:1024] Whitening: name=encoder.encoders.0.layers.1.nonlin_attention.whiten1, num_groups=1, num_channels=144, metric=25.72 vs. limit=5.0125
+2024-10-07 14:02:35,481 INFO [train.py:1153] Epoch 1, batch 150, loss[loss=1.075, ctc_loss=1.075, over 4910.00 frames. ], tot_loss[loss=1.351, ctc_loss=1.351, over 513480.80 frames. ], batch size: 19, lr: 2.93e-02,
+2024-10-07 14:02:36,044 INFO [scaling.py:1024] Whitening: name=encoder.encoders.2.encoder.layers.1.self_attn2.whiten, num_groups=1, num_channels=384, metric=43.64 vs. limit=7.5375
+2024-10-07 14:02:36,794 INFO [scaling.py:1024] Whitening: name=encoder.encoders.5.encoder.layers.1.feed_forward2.out_whiten, num_groups=1, num_channels=256, metric=76.76 vs. limit=7.51875
+2024-10-07 14:02:41,199 INFO [scaling.py:1024] Whitening: name=encoder.encoders.2.encoder.layers.0.nonlin_attention.whiten2, num_groups=1, num_channels=384, metric=105.95 vs. limit=5.025
+2024-10-07 14:02:43,225 INFO [scaling.py:1024] Whitening: name=encoder.encoders.2.encoder.layers.0.self_attn1.whiten, num_groups=1, num_channels=384, metric=54.09 vs. limit=7.5375
+2024-10-07 14:02:45,177 INFO [scaling.py:1024] Whitening: name=encoder.encoders.3.encoder.layers.0.whiten, num_groups=1, num_channels=512, metric=25.31 vs. limit=4.021333333333334
+2024-10-07 14:02:46,476 INFO [scaling.py:1024] Whitening: name=encoder.encoders.0.layers.0.feed_forward1.out_whiten, num_groups=1, num_channels=192, metric=79.67 vs. limit=7.52
+2024-10-07 14:02:47,997 INFO [scaling.py:1024] Whitening: name=encoder.encoders.5.encoder.layers.1.whiten, num_groups=1, num_channels=256, metric=23.95 vs. limit=4.021333333333334
+2024-10-07 14:02:49,264 INFO [scaling.py:1024] Whitening: name=encoder.encoders.3.encoder.layers.0.nonlin_attention.whiten2, num_groups=1, num_channels=512, metric=71.59 vs. limit=5.026666666666666
+2024-10-07 14:02:50,286 INFO [scaling.py:1024] Whitening: name=encoder.encoders.2.encoder.layers.2.conv_module2.whiten, num_groups=1, num_channels=384, metric=22.14 vs. limit=7.52
+2024-10-07 14:03:00,441 INFO [scaling.py:1024] Whitening: name=encoder.encoders.4.encoder.layers.2.feed_forward3.out_whiten, num_groups=1, num_channels=384, metric=113.37 vs. limit=7.52125
+2024-10-07 14:03:02,716 INFO [scaling.py:1024] Whitening: name=encoder.encoders.3.encoder.layers.0.conv_module1.whiten, num_groups=1, num_channels=512, metric=132.33 vs. limit=7.52125
+2024-10-07 14:03:12,410 INFO [scaling.py:214] ScheduledFloat: name=encoder.encoders.4.encoder.layers.0.attention_skip_rate, batch_count=60.0, ans=0.19775
+2024-10-07 14:03:13,700 INFO [scaling.py:1024] Whitening: name=encoder.encoders.4.encoder.layers.2.nonlin_attention.whiten2, num_groups=1, num_channels=384, metric=35.93 vs. limit=5.03
+2024-10-07 14:03:16,028 INFO [scaling.py:1024] Whitening: name=encoder.encoders.1.encoder.layers.0.nonlin_attention.whiten2, num_groups=1, num_channels=256, metric=141.23 vs. limit=5.031666666666666
+2024-10-07 14:03:17,624 INFO [scaling.py:214] ScheduledFloat: name=encoder.encoders.4.encoder.layers.2.balancer1.prob, batch_count=63.333333333333336, ans=0.49703125
+2024-10-07 14:03:20,959 INFO [scaling.py:1024] Whitening: name=encoder.encoders.3.encoder.layers.3.conv_module1.whiten, num_groups=1, num_channels=512, metric=54.65 vs. limit=7.52375
+2024-10-07 14:03:21,024 INFO [scaling.py:1024] Whitening: name=encoder.encoders.3.encoder.layers.0.conv_module2.whiten, num_groups=1, num_channels=512, metric=37.98 vs. limit=7.52375
+2024-10-07 14:03:25,238 INFO [scaling.py:1024] Whitening: name=encoder.encoders.2.encoder.layers.0.conv_module1.whiten, num_groups=1, num_channels=384, metric=28.56 vs. limit=7.52375
+2024-10-07 14:03:26,337 INFO [scaling.py:214] ScheduledFloat: name=encoder.encoders.3.encoder.layers.1.feed_forward3.hidden_balancer.prob, batch_count=66.66666666666667, ans=0.496875
+2024-10-07 14:03:27,169 WARNING [optim.py:487] Clipping_scale=2.0, grad-norm quartiles 8.002e+01 1.486e+02 1.832e+02 2.451e+02 4.934e+02, threshold=3.663e+02, percent-clipped=0.0
+2024-10-07 14:03:27,209 INFO [train.py:1153] Epoch 1, batch 200, loss[loss=1.184, ctc_loss=1.184, over 4760.00 frames. ], tot_loss[loss=1.268, ctc_loss=1.268, over 613838.26 frames. ], batch size: 45, lr: 3.15e-02,
+2024-10-07 14:03:28,844 INFO [scaling.py:1024] Whitening: name=encoder.encoders.2.encoder.layers.1.feed_forward1.out_whiten, num_groups=1, num_channels=384, metric=111.83 vs. limit=7.525
+2024-10-07 14:03:33,760 INFO [scaling.py:1024] Whitening: name=encoder.encoders.3.encoder.layers.1.conv_module1.whiten, num_groups=1, num_channels=512, metric=47.42 vs. limit=7.525
+2024-10-07 14:03:33,810 INFO [scaling.py:1024] Whitening: name=encoder.encoders.2.encoder.layers.2.self_attn2.whiten, num_groups=1, num_channels=384, metric=47.06 vs. limit=7.55
+2024-10-07 14:03:36,501 INFO [scaling.py:214] ScheduledFloat: name=encoder.encoders.3.encoder.layers.1.conv_module2.balancer2.min_positive, batch_count=70.0, ans=0.09956250000000001
+2024-10-07 14:03:40,615 INFO [scaling.py:214] ScheduledFloat: name=encoder.encoders.4.encoder.layers.1.balancer2.prob, batch_count=70.0, ans=0.49671875
+2024-10-07 14:03:43,542 INFO [scaling.py:214] ScheduledFloat: name=encoder_embed.conv.8.prob, batch_count=70.0, ans=0.49671875
+2024-10-07 14:03:46,117 INFO [scaling.py:1024] Whitening: name=encoder.encoders.3.encoder.layers.2.feed_forward1.out_whiten, num_groups=1, num_channels=512, metric=99.22 vs. limit=7.52625
+2024-10-07 14:03:56,223 INFO [scaling.py:1024] Whitening: name=encoder.encoders.5.encoder.layers.0.feed_forward2.out_whiten, num_groups=1, num_channels=256, metric=70.26 vs. limit=7.5275
+2024-10-07 14:03:56,450 INFO [scaling.py:1024] Whitening: name=encoder.encoders.2.encoder.layers.2.conv_module2.whiten, num_groups=1, num_channels=384, metric=23.85 vs. limit=7.5275
+2024-10-07 14:04:18,334 INFO [train.py:1153] Epoch 1, batch 250, loss[loss=1.163, ctc_loss=1.163, over 4819.00 frames. ], tot_loss[loss=1.214, ctc_loss=1.214, over 692578.36 frames. ], batch size: 38, lr: 3.38e-02,
+2024-10-07 14:04:23,546 INFO [scaling.py:214] ScheduledFloat: name=encoder.encoders.3.encoder.layers.0.conv_module1.balancer1.max_abs, batch_count=83.33333333333333, ans=5.052083333333333
+2024-10-07 14:04:26,126 INFO [scaling.py:214] ScheduledFloat: name=encoder.encoders.1.encoder.layers.0.self_attn1.whiten.whitening_limit, batch_count=83.33333333333333, ans=7.5625
+2024-10-07 14:04:27,864 INFO [scaling.py:1024] Whitening: name=encoder.encoders.4.encoder.layers.2.feed_forward1.out_whiten, num_groups=1, num_channels=384, metric=48.10 vs. limit=7.5325
+2024-10-07 14:04:31,134 INFO [scaling.py:1024] Whitening: name=encoder.encoders.2.encoder.layers.1.conv_module1.whiten, num_groups=1, num_channels=384, metric=28.53 vs. limit=7.5325
+2024-10-07 14:04:32,084 INFO [scaling.py:1024] Whitening: name=encoder.encoders.3.encoder.layers.1.feed_forward2.out_whiten, num_groups=1, num_channels=512, metric=86.80 vs. limit=7.5325
+2024-10-07 14:04:37,094 INFO [scaling.py:1024] Whitening: name=encoder.encoders.4.encoder.layers.1.conv_module2.whiten, num_groups=1, num_channels=384, metric=26.25 vs. limit=7.5325
+2024-10-07 14:04:38,857 INFO [scaling.py:214] ScheduledFloat: name=encoder.encoders.0.layers.1.nonlin_attention.balancer.max_positive, batch_count=90.0, ans=0.7509
+2024-10-07 14:04:40,210 INFO [scaling.py:1024] Whitening: name=encoder.encoders.4.encoder.layers.0.self_attn1.whiten, num_groups=1, num_channels=384, metric=38.43 vs. limit=7.5675
+2024-10-07 14:04:42,030 INFO [scaling.py:214] ScheduledFloat: name=encoder.encoders.2.encoder.layers.2.attention_skip_rate, batch_count=90.0, ans=0.19662500000000002
+2024-10-07 14:04:42,478 INFO [scaling.py:1024] Whitening: name=encoder.encoders.2.encoder.layers.1.feed_forward3.out_whiten, num_groups=1, num_channels=384, metric=103.06 vs. limit=7.53375
+2024-10-07 14:04:53,385 INFO [scaling.py:214] ScheduledFloat: name=encoder.encoders.2.encoder.layers.2.conv_module1.balancer1.prob, batch_count=93.33333333333333, ans=0.495625
+2024-10-07 14:04:53,942 INFO [scaling.py:1024] Whitening: name=encoder.encoders.1.encoder.layers.0.feed_forward1.out_whiten, num_groups=1, num_channels=256, metric=96.92 vs. limit=7.535
+2024-10-07 14:04:56,787 INFO [scaling.py:1024] Whitening: name=encoder.encoders.3.encoder.layers.3.feed_forward2.out_whiten, num_groups=1, num_channels=512, metric=105.64 vs. limit=7.535
+2024-10-07 14:04:58,502 INFO [scaling.py:214] ScheduledFloat: name=encoder.encoders.4.encoder.layers.2.conv_skip_rate, batch_count=96.66666666666667, ans=0.19637500000000002
+2024-10-07 14:05:03,908 INFO [scaling.py:1024] Whitening: name=encoder.encoders.4.encoder.layers.1.self_attn1.whiten, num_groups=1, num_channels=384, metric=51.31 vs. limit=7.5725
+2024-10-07 14:05:06,771 INFO [scaling.py:214] ScheduledFloat: name=encoder.encoders.5.encoder.layers.0.attention_skip_rate, batch_count=96.66666666666667, ans=0.19637500000000002
+2024-10-07 14:05:07,284 INFO [scaling.py:1024] Whitening: name=encoder.encoders.1.encoder.layers.0.feed_forward1.out_whiten, num_groups=1, num_channels=256, metric=142.63 vs. limit=7.53625
+2024-10-07 14:05:09,644 WARNING [optim.py:487] Clipping_scale=2.0, grad-norm quartiles 5.608e+01 1.434e+02 1.903e+02 2.696e+02 5.661e+02, threshold=3.806e+02, percent-clipped=4.0
+2024-10-07 14:05:09,681 INFO [train.py:1153] Epoch 1, batch 300, loss[loss=1.16, ctc_loss=1.16, over 4773.00 frames. ], tot_loss[loss=1.178, ctc_loss=1.178, over 753007.62 frames. ], batch size: 32, lr: 3.60e-02,
+2024-10-07 14:05:13,845 INFO [scaling.py:214] ScheduledFloat: name=encoder.encoders.1.encoder.layers.0.bypass_mid.scale_min, batch_count=100.0, ans=0.8965000000000001
+2024-10-07 14:05:17,183 INFO [scaling.py:1024] Whitening: name=encoder.encoders.4.encoder.layers.2.feed_forward2.out_whiten, num_groups=1, num_channels=384, metric=93.26 vs. limit=7.5375
+2024-10-07 14:05:21,422 INFO [scaling.py:1024] Whitening: name=encoder.encoders.3.encoder.layers.1.feed_forward3.out_whiten, num_groups=1, num_channels=512, metric=82.53 vs. limit=7.53875
+2024-10-07 14:05:22,301 INFO [scaling.py:1024] Whitening: name=encoder.encoders.5.encoder.layers.0.nonlin_attention.whiten1, num_groups=1, num_channels=192, metric=9.16 vs. limit=5.025833333333333
+2024-10-07 14:05:22,602 INFO [scaling.py:1024] Whitening: name=encoder.encoders.1.encoder.layers.1.self_attn1.whiten, num_groups=1, num_channels=256, metric=25.40 vs. limit=7.5775
+2024-10-07 14:05:26,926 INFO [scaling.py:1024] Whitening: name=encoder.encoders.0.layers.0.conv_module1.whiten, num_groups=1, num_channels=192, metric=17.11 vs. limit=7.53875
+2024-10-07 14:05:27,311 INFO [scaling.py:214] ScheduledFloat: name=encoder.encoders.4.encoder.layers.2.feed_forward2.hidden_balancer.prob, batch_count=103.33333333333333, ans=0.49515625
+2024-10-07 14:05:28,830 INFO [scaling.py:1024] Whitening: name=encoder.encoders.1.encoder.layers.0.feed_forward1.out_whiten, num_groups=1, num_channels=256, metric=102.44 vs. limit=7.53875
+2024-10-07 14:05:44,871 INFO [scaling.py:1024] Whitening: name=encoder.encoders.4.encoder.layers.2.conv_module2.whiten, num_groups=1, num_channels=384, metric=32.34 vs. limit=7.54125
+2024-10-07 14:05:49,923 INFO [scaling.py:214] ScheduledFloat: name=encoder.encoders.3.encoder.layers.2.ff2_skip_rate, batch_count=113.33333333333333, ans=0.09745000000000001
+2024-10-07 14:05:54,400 INFO [scaling.py:1024] Whitening: name=encoder.encoders.2.encoder.layers.2.whiten, num_groups=1, num_channels=384, metric=11.35 vs. limit=4.045333333333334
+2024-10-07 14:05:57,512 INFO [scaling.py:1024] Whitening: name=encoder.encoders.2.encoder.layers.1.feed_forward3.out_whiten, num_groups=1, num_channels=384, metric=50.68 vs. limit=7.5425
+2024-10-07 14:05:58,636 INFO [scaling.py:1024] Whitening: name=encoder.encoders.1.encoder.layers.1.whiten, num_groups=1, num_channels=256, metric=7.66 vs. limit=4.045333333333334
+2024-10-07 14:06:01,057 INFO [train.py:1153] Epoch 1, batch 350, loss[loss=1.065, ctc_loss=1.065, over 4883.00 frames. ], tot_loss[loss=1.153, ctc_loss=1.153, over 800374.59 frames. ], batch size: 19, lr: 3.83e-02,
+2024-10-07 14:06:01,352 INFO [scaling.py:1024] Whitening: name=encoder.encoders.5.encoder.layers.1.nonlin_attention.whiten2, num_groups=1, num_channels=256, metric=68.82 vs. limit=5.058333333333334
+2024-10-07 14:06:04,617 INFO [scaling.py:1024] Whitening: name=encoder.encoders.3.encoder.layers.2.whiten, num_groups=1, num_channels=512, metric=15.09 vs. limit=4.046666666666667
+2024-10-07 14:06:08,943 INFO [scaling.py:1024] Whitening: name=encoder.encoders.0.layers.1.feed_forward2.out_whiten, num_groups=1, num_channels=192, metric=99.41 vs. limit=7.54375
+2024-10-07 14:06:24,338 INFO [scaling.py:1024] Whitening: name=encoder_embed.out_whiten, num_groups=1, num_channels=192, metric=8.19 vs. limit=4.024666666666667
+2024-10-07 14:06:28,109 INFO [scaling.py:1024] Whitening: name=encoder.encoders.3.encoder.layers.2.nonlin_attention.whiten1, num_groups=1, num_channels=384, metric=12.26 vs. limit=5.030833333333334

@@ -1,0 +1,24 @@
+Traceback (most recent call last):
+  File "/mnt/ahogpu_ldisk2/adriang/icefall/egs/basque_parliament_1_gttsehu/ASR/zipformer/train.py", line 1553, in <module>
+    main()
+  File "/mnt/ahogpu_ldisk2/adriang/icefall/egs/basque_parliament_1_gttsehu/ASR/zipformer/train.py", line 1541, in main
+    mp.spawn(run, args=(world_size, args), nprocs=world_size, join=True)
+  File "/mnt/ahogpu_ldisk2/adriang/anaconda3/envs/icefall/lib/python3.9/site-packages/torch/multiprocessing/spawn.py", line 239, in spawn
+    return start_processes(fn, args, nprocs, join, daemon, start_method='spawn')
+  File "/mnt/ahogpu_ldisk2/adriang/anaconda3/envs/icefall/lib/python3.9/site-packages/torch/multiprocessing/spawn.py", line 197, in start_processes
+    while not context.join():
+  File "/mnt/ahogpu_ldisk2/adriang/anaconda3/envs/icefall/lib/python3.9/site-packages/torch/multiprocessing/spawn.py", line 160, in join
+    raise ProcessRaisedException(msg, error_index, failed_process.pid)
+torch.multiprocessing.spawn.ProcessRaisedException:
+
+-- Process 2 terminated with the following error:
+Traceback (most recent call last):
+  File "/mnt/ahogpu_ldisk2/adriang/anaconda3/envs/icefall/lib/python3.9/site-packages/torch/multiprocessing/spawn.py", line 69, in _wrap
+    fn(i, *args)
+  File "/mnt/ahogpu_ldisk2/adriang/icefall/egs/basque_parliament_1_gttsehu/ASR/zipformer/train.py", line 1410, in run
+    train_one_epoch(
+  File "/mnt/ahogpu_ldisk2/adriang/icefall/egs/basque_parliament_1_gttsehu/ASR/zipformer/train.py", line 1086, in train_one_epoch
+    wandb.log({
+  File "/mnt/ahogpu_ldisk2/adriang/anaconda3/envs/icefall/lib/python3.9/site-packages/wandb/sdk/lib/preinit.py", line 36, in preinit_wrapper
+    raise wandb.Error(f"You must call wandb.init() before {name}()")
+wandb.errors.errors.Error: You must call wandb.init() before wandb.log()

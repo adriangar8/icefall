@@ -106,7 +106,7 @@ import k2
 import sentencepiece as spm
 import torch
 import torch.nn as nn
-from asr_datamodule import LibriSpeechAsrDataModule
+from custom_asr_data_module import CustomAsrDataModule
 from beam_search import (
     beam_search,
     fast_beam_search_nbest,
@@ -141,6 +141,7 @@ from icefall.utils import (
 
 LOG_EPS = math.log(1e-10)
 
+# ----------------------------------------------------------------------------------------
 
 def get_parser():
     parser = argparse.ArgumentParser(
@@ -169,7 +170,7 @@ def get_parser():
     parser.add_argument(
         "--avg",
         type=int,
-        default=15,
+        default=2,
         help="Number of checkpoints to average. Automatically select "
         "consecutive checkpoints before the checkpoint specified by "
         "'--epoch' and '--iter'",
@@ -189,21 +190,21 @@ def get_parser():
     parser.add_argument(
         "--exp-dir",
         type=str,
-        default="zipformer/exp",
+        default="zipformer/exp_transducer_False_ctc_True_attdecoder_True_streaming_False",
         help="The experiment dir",
     )
 
     parser.add_argument(
         "--bpe-model",
         type=str,
-        default="data/lang_bpe_500/bpe.model",
+        default="data/lang_bpe_256/bpe.model",
         help="Path to the BPE model",
     )
 
     parser.add_argument(
         "--lang-dir",
         type=Path,
-        default="data/lang_bpe_500",
+        default="data/lang_bpe_256",
         help="The lang dir containing word table and LG graph",
     )
 
@@ -373,6 +374,7 @@ def get_parser():
 
     return parser
 
+# ----------------------------------------------------------------------------------------
 
 def decode_one_batch(
     params: AttributeDict,
@@ -622,6 +624,7 @@ def decode_one_batch(
     else:
         return {f"beam_size_{params.beam_size}": hyps}
 
+# ----------------------------------------------------------------------------------------
 
 def decode_dataset(
     dl: torch.utils.data.DataLoader,
@@ -706,6 +709,7 @@ def decode_dataset(
             logging.info(f"batch {batch_str}, cuts processed until now is {num_cuts}")
     return results
 
+# ----------------------------------------------------------------------------------------
 
 def save_results(
     params: AttributeDict,
@@ -750,14 +754,18 @@ def save_results(
         note = ""
     logging.info(s)
 
+# ----------------------------------------------------------------------------------------
 
 @torch.no_grad()
 def main():
+
     parser = get_parser()
-    LibriSpeechAsrDataModule.add_arguments(parser)
+    CustomAsrDataModule.add_arguments(parser)
     LmScorer.add_arguments(parser)
     args = parser.parse_args()
-    args.exp_dir = Path(args.exp_dir)
+    # exp_dir = args.exp_dir + f"_transducer_{args.use_transducer}_ctc_{args.use_ctc}_attdecoder_{args.use_attention_decoder}_streaming_{args.causal}"
+    exp_dir = "zipformer/exp"
+    args.exp_dir = Path(exp_dir)
 
     params = get_params()
     params.update(vars(args))
@@ -770,10 +778,10 @@ def main():
         "fast_beam_search_nbest_LG",
         "fast_beam_search_nbest_oracle",
         "modified_beam_search",
-        "modified_beam_search_LODR",
-        "modified_beam_search_lm_shallow_fusion",
-        "modified_beam_search_lm_rescore",
-        "modified_beam_search_lm_rescore_LODR",
+        # "modified_beam_search_LODR",
+        # "modified_beam_search_lm_shallow_fusion",
+        # "modified_beam_search_lm_rescore",
+        # "modified_beam_search_lm_rescore_LODR",
     )
     params.res_dir = params.exp_dir / params.decoding_method
 
@@ -834,7 +842,7 @@ def main():
 
     device = torch.device("cpu")
     if torch.cuda.is_available():
-        device = torch.device("cuda", 0)
+        device = torch.device("cuda")
 
     logging.info(f"Device: {device}")
 
@@ -1013,16 +1021,14 @@ def main():
 
     # we need cut ids to display recognition results.
     args.return_cuts = True
-    librispeech = LibriSpeechAsrDataModule(args)
+    basqueP = CustomAsrDataModule(args)
 
-    test_clean_cuts = librispeech.test_clean_cuts()
-    test_other_cuts = librispeech.test_other_cuts()
+    test_cuts = basqueP.test_cuts()
 
-    test_clean_dl = librispeech.test_dataloaders(test_clean_cuts)
-    test_other_dl = librispeech.test_dataloaders(test_other_cuts)
+    test_dl = basqueP.test_dataloaders(test_cuts)
 
-    test_sets = ["test-clean", "test-other"]
-    test_dl = [test_clean_dl, test_other_dl]
+    test_sets = ["test_original"]
+    test_dl = [test_dl]
 
     for test_set, test_dl in zip(test_sets, test_dl):
         results_dict = decode_dataset(
@@ -1046,6 +1052,19 @@ def main():
 
     logging.info("Done!")
 
+# ----------------------------------------------------------------------------------------
 
 if __name__ == "__main__":
     main()
+
+# ----------------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------

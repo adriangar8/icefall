@@ -1,0 +1,52 @@
+Traceback (most recent call last):
+  File "/mnt/ahogpu_ldisk2/adriang/icefall/egs/basque_parliament_1_gttsehu/ASR/zipformer/train.py", line 1553, in <module>
+    main()
+  File "/mnt/ahogpu_ldisk2/adriang/icefall/egs/basque_parliament_1_gttsehu/ASR/zipformer/train.py", line 1541, in main
+    mp.spawn(run, args=(world_size, args), nprocs=world_size, join=True)
+  File "/mnt/ahogpu_ldisk2/adriang/anaconda3/envs/icefall/lib/python3.9/site-packages/torch/multiprocessing/spawn.py", line 239, in spawn
+    return start_processes(fn, args, nprocs, join, daemon, start_method='spawn')
+  File "/mnt/ahogpu_ldisk2/adriang/anaconda3/envs/icefall/lib/python3.9/site-packages/torch/multiprocessing/spawn.py", line 197, in start_processes
+    while not context.join():
+  File "/mnt/ahogpu_ldisk2/adriang/anaconda3/envs/icefall/lib/python3.9/site-packages/torch/multiprocessing/spawn.py", line 160, in join
+    raise ProcessRaisedException(msg, error_index, failed_process.pid)
+torch.multiprocessing.spawn.ProcessRaisedException:
+
+-- Process 1 terminated with the following error:
+Traceback (most recent call last):
+  File "/mnt/ahogpu_ldisk2/adriang/anaconda3/envs/icefall/lib/python3.9/site-packages/torch/multiprocessing/spawn.py", line 69, in _wrap
+    fn(i, *args)
+  File "/mnt/ahogpu_ldisk2/adriang/icefall/egs/basque_parliament_1_gttsehu/ASR/zipformer/train.py", line 1387, in run
+    scan_pessimistic_batches_for_oom(
+  File "/mnt/ahogpu_ldisk2/adriang/icefall/egs/basque_parliament_1_gttsehu/ASR/zipformer/train.py", line 1498, in scan_pessimistic_batches_for_oom
+    loss, _ = compute_loss(
+  File "/mnt/ahogpu_ldisk2/adriang/icefall/egs/basque_parliament_1_gttsehu/ASR/zipformer/train.py", line 895, in compute_loss
+    simple_loss, pruned_loss, ctc_loss, attention_decoder_loss = model(
+  File "/mnt/ahogpu_ldisk2/adriang/anaconda3/envs/icefall/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/mnt/ahogpu_ldisk2/adriang/anaconda3/envs/icefall/lib/python3.9/site-packages/torch/nn/parallel/distributed.py", line 1156, in forward
+    output = self._run_ddp_forward(*inputs, **kwargs)
+  File "/mnt/ahogpu_ldisk2/adriang/anaconda3/envs/icefall/lib/python3.9/site-packages/torch/nn/parallel/distributed.py", line 1110, in _run_ddp_forward
+    return module_to_run(*inputs[0], **kwargs[0])  # type: ignore[index]
+  File "/mnt/ahogpu_ldisk2/adriang/anaconda3/envs/icefall/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/mnt/ahogpu_ldisk2/adriang/icefall/egs/basque_parliament_1_gttsehu/ASR/zipformer/model.py", line 348, in forward
+    encoder_out, encoder_out_lens = self.forward_encoder(x, x_lens)
+  File "/mnt/ahogpu_ldisk2/adriang/icefall/egs/basque_parliament_1_gttsehu/ASR/zipformer/model.py", line 152, in forward_encoder
+    x, x_lens = self.encoder_embed(x, x_lens)
+  File "/mnt/ahogpu_ldisk2/adriang/anaconda3/envs/icefall/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/mnt/ahogpu_ldisk2/adriang/icefall/egs/basque_parliament_1_gttsehu/ASR/zipformer/subsampling.py", line 310, in forward
+    x = self.convnext(x)
+  File "/mnt/ahogpu_ldisk2/adriang/anaconda3/envs/icefall/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/mnt/ahogpu_ldisk2/adriang/icefall/egs/basque_parliament_1_gttsehu/ASR/zipformer/subsampling.py", line 117, in forward
+    return self.forward_internal(x, mask)
+  File "/mnt/ahogpu_ldisk2/adriang/icefall/egs/basque_parliament_1_gttsehu/ASR/zipformer/subsampling.py", line 129, in forward_internal
+    x = self.pointwise_conv1(x)
+  File "/mnt/ahogpu_ldisk2/adriang/anaconda3/envs/icefall/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/mnt/ahogpu_ldisk2/adriang/anaconda3/envs/icefall/lib/python3.9/site-packages/torch/nn/modules/conv.py", line 463, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/mnt/ahogpu_ldisk2/adriang/anaconda3/envs/icefall/lib/python3.9/site-packages/torch/nn/modules/conv.py", line 459, in _conv_forward
+    return F.conv2d(input, weight, bias, self.stride,
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 278.00 MiB (GPU 1; 11.92 GiB total capacity; 1.00 GiB already allocated; 63.00 MiB free; 1.21 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

@@ -76,7 +76,7 @@ class CustomAsrDataModule:
         group.add_argument(
             "--manifest-dir",
             type=Path,
-            default=Path("/mnt/ahogpu_ldisk2/adriang/icefall_own/egs/basque_parliament_1_gttsehu/ASR/data/fbank"),
+            default=Path("/mnt/ahogpu_ldisk2/adriang/icefall/egs/basque_parliament_1_gttsehu/ASR/data/fbank"),
             help="Path to directory with train/valid/test cuts.",
         )
         group.add_argument(

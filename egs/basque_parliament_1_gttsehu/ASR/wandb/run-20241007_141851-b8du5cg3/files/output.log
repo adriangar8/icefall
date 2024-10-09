@@ -1,0 +1,66 @@
+2024-10-07 14:18:51,715 INFO [train.py:1231] Training started
+2024-10-07 14:18:51,716 INFO [train.py:1241] Device: cuda:0
+2024-10-07 14:18:51,717 INFO [train.py:1272] Using dtype=torch.float32
+2024-10-07 14:18:51,717 INFO [train.py:1273] Use AMP=False
+2024-10-07 14:18:51,717 INFO [train.py:1275] {'best_train_loss': inf, 'best_valid_loss': inf, 'best_train_epoch': -1, 'best_valid_epoch': -1, 'batch_idx_train': 0, 'log_interval': 50, 'reset_interval': 200, 'valid_interval': 3000, 'feature_dim': 80, 'subsampling_factor': 4, 'ignore_id': -1, 'label_smoothing': 0.1, 'warm_step': 2000, 'env_info': {'k2-version': '1.24.3', 'k2-build-type': 'Release', 'k2-with-cuda': True, 'k2-git-sha1': 'e400fa3b456faf8afe0ee5bfe572946b4921a3db', 'k2-git-date': 'Sat Jul 15 04:21:50 2023', 'lhotse-version': '1.25.0', 'torch-version': '2.0.1+cu118', 'torch-cuda-available': True, 'torch-cuda-version': '11.8', 'python-version': '3.9', 'icefall-git-branch': 'master', 'icefall-git-sha1': 'cabeaf7f-dirty', 'icefall-git-date': 'Thu Oct 3 12:53:52 2024', 'icefall-path': '/mnt/ahogpu_ldisk2/adriang/icefall', 'k2-path': '/mnt/ahogpu_ldisk2/adriang/anaconda3/envs/icefall/lib/python3.9/site-packages/k2/__init__.py', 'lhotse-path': '/mnt/ahogpu_ldisk2/adriang/anaconda3/envs/icefall/lib/python3.9/site-packages/lhotse/__init__.py', 'hostname': 'ahogpu', 'IP address': '192.168.1.130'}, 'world_size': 1, 'master_port': 12354, 'tensorboard': True, 'num_epochs': 30, 'start_epoch': 1, 'start_batch': 0, 'exp_dir': PosixPath('zipformer/exp'), 'bpe_model': '/mnt/ahogpu_ldisk2/adriang/icefall/egs/basque_parliament_1_gttsehu/ASR/data/lang_bpe_256/bpe.model', 'base_lr': 0.045, 'lr_batches': 7500, 'lr_epochs': 3.5, 'ref_duration': 600, 'context_size': 2, 'prune_range': 5, 'lm_scale': 0.25, 'am_scale': 0.0, 'simple_loss_scale': 0.5, 'ctc_loss_scale': 0.2, 'attention_decoder_loss_scale': 0.8, 'seed': 42, 'print_diagnostics': False, 'inf_check': False, 'save_every_n': 4000, 'keep_last_k': 30, 'average_period': 200, 'use_bf16': False, 'use_fp16': False, 'num_encoder_layers': '2,2,3,4,3,2', 'downsampling_factor': '1,2,4,8,4,2', 'feedforward_dim': '512,768,1024,1536,1024,768', 'num_heads': '4,4,4,8,4,4', 'encoder_dim': '192,256,384,512,384,256', 'query_head_dim': '32', 'value_head_dim': '12', 'pos_head_dim': '4', 'pos_dim': 48, 'encoder_unmasked_dim': '192,192,256,256,256,192', 'cnn_module_kernel': '31,31,15,15,15,31', 'decoder_dim': 512, 'joiner_dim': 512, 'attention_decoder_dim': 512, 'attention_decoder_num_layers': 6, 'attention_decoder_attention_dim': 512, 'attention_decoder_num_heads': 8, 'attention_decoder_feedforward_dim': 2048, 'causal': False, 'chunk_size': '16,32,64,-1', 'left_context_frames': '64,128,256,-1', 'use_transducer': True, 'use_ctc': True, 'use_attention_decoder': False, 'manifest_dir': PosixPath('/mnt/ahogpu_ldisk2/adriang/icefall/egs/basque_parliament_1_gttsehu/ASR/data/fbank'), 'max_duration': 200.0, 'bucketing_sampler': True, 'num_buckets': 30, 'concatenate_cuts': False, 'duration_factor': 1.0, 'gap': 1.0, 'on_the_fly_feats': False, 'shuffle': True, 'drop_last': True, 'return_cuts': True, 'num_workers': 2, 'enable_spec_aug': True, 'spec_aug_time_warp_factor': 80, 'enable_musan': True, 'input_strategy': 'PrecomputedFeatures', 'blank_id': 0, 'sos_id': 1, 'eos_id': 1, 'vocab_size': 256, 'dtype': torch.float32, 'use_autocast': False}
+2024-10-07 14:18:51,718 INFO [train.py:1277] About to create model
+2024-10-07 14:18:52,111 INFO [train.py:1281] Number of model parameters: 65179895
+2024-10-07 14:18:53,816 INFO [train.py:1299] Using single GPU
+2024-10-07 14:18:53,831 INFO [custom_asr_data_module.py:394] About to load train cuts
+2024-10-07 14:18:53,832 INFO [custom_asr_data_module.py:204] Enable MUSAN
+2024-10-07 14:18:53,832 INFO [custom_asr_data_module.py:205] About to get Musan cuts
+2024-10-07 14:18:55,368 INFO [custom_asr_data_module.py:234] Enable SpecAugment
+2024-10-07 14:18:55,368 INFO [custom_asr_data_module.py:235] Time warp factor: 80
+2024-10-07 14:18:55,368 INFO [custom_asr_data_module.py:245] Num frame mask: 10
+2024-10-07 14:18:55,368 INFO [custom_asr_data_module.py:260] About to create train dataset
+2024-10-07 14:18:55,368 INFO [custom_asr_data_module.py:287] Using DynamicBucketingSampler.
+2024-10-07 14:18:55,748 INFO [custom_asr_data_module.py:304] About to create train dataloader
+2024-10-07 14:18:55,749 INFO [custom_asr_data_module.py:402] About to load valid cuts
+2024-10-07 14:18:55,750 INFO [custom_asr_data_module.py:338] About to create dev dataset
+2024-10-07 14:18:55,771 INFO [custom_asr_data_module.py:355] About to create dev dataloader
+2024-10-07 14:18:55,771 INFO [train.py:1491] Sanity check -- see if any of the batches in epoch 1 would cause OOM.
+/mnt/ahogpu_ldisk2/adriang/anaconda3/envs/icefall/lib/python3.9/site-packages/torch/nn/modules/conv.py:459: UserWarning: Applied workaround for CuDNN issue, install nvrtc.so (Triggered internally at ../aten/src/ATen/native/cudnn/Conv_v8.cpp:80.)
+  return F.conv2d(input, weight, bias, self.stride,
+2024-10-07 14:19:28,397 ERROR [train.py:1510] Your GPU ran out of memory with the current max_duration setting. We recommend decreasing max_duration and trying again.
+Failing criterion: single_longest_cut (=10.512) ...
+2024-10-07 14:19:28,397 INFO [train.py:1468] Saving batch to zipformer/exp/batch-a9488d99-0bbb-2599-11ce-5dd2b45ed1f0.pt
+2024-10-07 14:19:28,406 INFO [train.py:1474] features shape: torch.Size([19, 1051, 80])
+2024-10-07 14:19:28,407 INFO [train.py:1478] num tokens: 895
+Traceback (most recent call last):
+  File "/mnt/ahogpu_ldisk2/adriang/icefall/egs/basque_parliament_1_gttsehu/ASR/zipformer/train.py", line 1552, in <module>
+    main()
+  File "/mnt/ahogpu_ldisk2/adriang/icefall/egs/basque_parliament_1_gttsehu/ASR/zipformer/train.py", line 1542, in main
+    run(rank=0, world_size=1, args=args)
+  File "/mnt/ahogpu_ldisk2/adriang/icefall/egs/basque_parliament_1_gttsehu/ASR/zipformer/train.py", line 1388, in run
+    scan_pessimistic_batches_for_oom(
+  File "/mnt/ahogpu_ldisk2/adriang/icefall/egs/basque_parliament_1_gttsehu/ASR/zipformer/train.py", line 1499, in scan_pessimistic_batches_for_oom
+    loss, _ = compute_loss(
+  File "/mnt/ahogpu_ldisk2/adriang/icefall/egs/basque_parliament_1_gttsehu/ASR/zipformer/train.py", line 896, in compute_loss
+    simple_loss, pruned_loss, ctc_loss, attention_decoder_loss = model(
+  File "/mnt/ahogpu_ldisk2/adriang/anaconda3/envs/icefall/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/mnt/ahogpu_ldisk2/adriang/icefall/egs/basque_parliament_1_gttsehu/ASR/zipformer/model.py", line 348, in forward
+    encoder_out, encoder_out_lens = self.forward_encoder(x, x_lens)
+  File "/mnt/ahogpu_ldisk2/adriang/icefall/egs/basque_parliament_1_gttsehu/ASR/zipformer/model.py", line 158, in forward_encoder
+    encoder_out, encoder_out_lens = self.encoder(x, x_lens, src_key_padding_mask)
+  File "/mnt/ahogpu_ldisk2/adriang/anaconda3/envs/icefall/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/mnt/ahogpu_ldisk2/adriang/icefall/egs/basque_parliament_1_gttsehu/ASR/zipformer/zipformer.py", line 334, in forward
+    x = module(
+  File "/mnt/ahogpu_ldisk2/adriang/anaconda3/envs/icefall/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/mnt/ahogpu_ldisk2/adriang/icefall/egs/basque_parliament_1_gttsehu/ASR/zipformer/zipformer.py", line 1258, in forward
+    src = self.encoder(
+  File "/mnt/ahogpu_ldisk2/adriang/anaconda3/envs/icefall/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/mnt/ahogpu_ldisk2/adriang/icefall/egs/basque_parliament_1_gttsehu/ASR/zipformer/zipformer.py", line 1074, in forward
+    output = mod(
+  File "/mnt/ahogpu_ldisk2/adriang/anaconda3/envs/icefall/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/mnt/ahogpu_ldisk2/adriang/icefall/egs/basque_parliament_1_gttsehu/ASR/zipformer/zipformer.py", line 775, in forward
+    attn_weights = self.self_attn_weights(
+  File "/mnt/ahogpu_ldisk2/adriang/anaconda3/envs/icefall/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/mnt/ahogpu_ldisk2/adriang/icefall/egs/basque_parliament_1_gttsehu/ASR/zipformer/zipformer.py", line 1671, in forward
+    attn_scores = attn_scores + pos_scores
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 20.00 MiB (GPU 0; 11.92 GiB total capacity; 2.08 GiB already allocated; 16.81 MiB free; 2.11 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

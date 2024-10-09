@@ -1,0 +1,13 @@
+{"time":"2024-10-08T19:12:42.312754096+02:00","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-08T19:12:42.312780569+02:00","level":"INFO","msg":"created symlink","path":"/mnt/ahogpu_ldisk2/adriang/icefall/egs/basque_parliament_1_gttsehu/ASR/wandb/run-20241008_191242-b0weff2p/logs/debug-core.log"}
+{"time":"2024-10-08T19:12:42.325311978+02:00","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-08T19:12:42.332154958+02:00","level":"INFO","msg":"created new stream","id":"b0weff2p"}
+{"time":"2024-10-08T19:12:42.332185549+02:00","level":"INFO","msg":"stream: started","id":"b0weff2p"}
+{"time":"2024-10-08T19:12:42.332216007+02:00","level":"INFO","msg":"handler: started","stream_id":{"value":"b0weff2p"}}
+{"time":"2024-10-08T19:12:42.332212766+02:00","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"b0weff2p"}}
+{"time":"2024-10-08T19:12:42.332216149+02:00","level":"INFO","msg":"sender: started","stream_id":{"value":"b0weff2p"}}
+{"time":"2024-10-08T19:12:42.637193998+02:00","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-08T19:12:42.638700482+02:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-08T21:16:33.453394851+02:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": net/http: request canceled (Client.Timeout exceeded while awaiting headers)"}
+{"time":"2024-10-09T05:30:51.632320453+02:00","level":"INFO","msg":"api: retrying HTTP error","status":502,"url":"https://api.wandb.ai/files/adriangarc8/Zipformer/b0weff2p/file_stream"}
+{"time":"2024-10-09T08:24:20.720187774+02:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": read tcp 192.168.1.130:56880->35.186.228.49:443: read: connection reset by peer"}

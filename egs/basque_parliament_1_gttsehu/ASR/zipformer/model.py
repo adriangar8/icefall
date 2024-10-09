@@ -20,7 +20,7 @@ import os
 from importlib.util import spec_from_file_location, module_from_spec
 
 # Update this path to the correct location of encoder_interface.py
-encoder_interface_path = '/mnt/ahogpu_ldisk2/adriang/icefall_own/egs/librispeech/SSL/zipformer/encoder_interface.py'
+encoder_interface_path = '/mnt/ahogpu_ldisk2/adriang/icefall/egs/basque_parliament_1_gttsehu/ASR/zipformer/encoder_interface.py'
 
 spec = spec_from_file_location("encoder_interface", encoder_interface_path)
 encoder_interface = module_from_spec(spec)

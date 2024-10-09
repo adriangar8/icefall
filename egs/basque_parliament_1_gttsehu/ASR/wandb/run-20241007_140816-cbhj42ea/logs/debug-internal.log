@@ -1,0 +1,18 @@
+{"time":"2024-10-07T14:08:16.420069345+02:00","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-07T14:08:16.420102931+02:00","level":"INFO","msg":"created symlink","path":"/mnt/ahogpu_ldisk2/adriang/icefall/egs/basque_parliament_1_gttsehu/ASR/wandb/run-20241007_140816-cbhj42ea/logs/debug-core.log"}
+{"time":"2024-10-07T14:08:16.42182877+02:00","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-07T14:08:16.428735873+02:00","level":"INFO","msg":"created new stream","id":"cbhj42ea"}
+{"time":"2024-10-07T14:08:16.428776726+02:00","level":"INFO","msg":"stream: started","id":"cbhj42ea"}
+{"time":"2024-10-07T14:08:16.428814354+02:00","level":"INFO","msg":"sender: started","stream_id":{"value":"cbhj42ea"}}
+{"time":"2024-10-07T14:08:16.42882816+02:00","level":"INFO","msg":"handler: started","stream_id":{"value":"cbhj42ea"}}
+{"time":"2024-10-07T14:08:16.428797496+02:00","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"cbhj42ea"}}
+{"time":"2024-10-07T14:08:16.709919847+02:00","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-07T14:08:16.711053392+02:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-07T14:08:54.460435022+02:00","level":"INFO","msg":"stream: closing","id":"cbhj42ea"}
+{"time":"2024-10-07T14:08:54.460463647+02:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-07T14:08:54.461671794+02:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-07T14:08:56.644787022+02:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-07T14:08:56.851430483+02:00","level":"INFO","msg":"handler: closed","stream_id":{"value":"cbhj42ea"}}
+{"time":"2024-10-07T14:08:56.851484197+02:00","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"cbhj42ea"}}
+{"time":"2024-10-07T14:08:56.85151716+02:00","level":"INFO","msg":"sender: closed","stream_id":{"value":"cbhj42ea"}}
+{"time":"2024-10-07T14:08:56.851609703+02:00","level":"INFO","msg":"stream: closed","id":"cbhj42ea"}

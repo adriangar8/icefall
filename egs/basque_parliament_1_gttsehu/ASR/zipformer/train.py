@@ -21,6 +21,8 @@
 """
 Usage:
 
+python zipformer/train.py --world-size 1 --use-transducer False --use-ctc True --use-attention-decoder True --causal 1
+
 export CUDA_VISIBLE_DEVICES="0,1,2,3"
 
 # For non-streaming model training:
@@ -41,7 +43,6 @@ export CUDA_VISIBLE_DEVICES="0,1,2,3"
   --use-fp16 1 \
   --exp-dir zipformer/exp \
   --causal 1 \
-  --full-libri 1 \
   --max-duration 1000
 
 It supports training with:
@@ -53,6 +54,7 @@ It supports training with:
 """
 
 import sys
+import wandb
 import argparse
 import copy
 import logging
@@ -376,7 +378,7 @@ def get_parser():
     parser.add_argument(
         "--bpe-model",
         type=str,
-        default="/mnt/ahogpu_ldisk2/adriang/icefall_own/egs/basque_parliament_1_gttsehu/ASR/data/lang_bpe_256/bpe.model",
+        default="/mnt/ahogpu_ldisk2/adriang/icefall/egs/basque_parliament_1_gttsehu/ASR/data/lang_bpe_256/bpe.model",
         help="Path to the BPE model",
     )
 
@@ -1081,6 +1083,17 @@ def train_one_epoch(
             display_and_save_batch(batch, params=params, sp=sp)
             raise
 
+        # ---- Log metrics to WandB ----
+
+        wandb.log({
+             "loss": loss.item(),
+             "learning_rate": scheduler.get_last_lr()[0],
+             "epoch": params.cur_epoch,
+             "batch": params.batch_idx_train,
+         })
+        
+        # -----------------------------
+
         if params.print_diagnostics and batch_idx == 5:
             return
 
@@ -1179,6 +1192,14 @@ def train_one_epoch(
                     tb_writer, "train/valid_", params.batch_idx_train
                 )
 
+            # ---- Log metrics to WandB ----
+            
+            wandb.log({
+                 "validation_loss": valid_info["loss"],
+                 "epoch": params.cur_epoch,
+             })
+
+             # -----------------------------
     
     loss_value = tot_loss["loss"] / tot_loss["frames"]
     params.train_loss = loss_value
@@ -1503,18 +1524,27 @@ def scan_pessimistic_batches_for_oom(
 # ----------------------------------------------------------------------------------------
 
 def main():
+
     parser = get_parser()
     CustomAsrDataModule.add_arguments(parser)
     args = parser.parse_args()
-    args.exp_dir = Path(args.exp_dir)
+    exp_dir = args.exp_dir + f"_transducer_{args.use_transducer}_ctc_{args.use_ctc}_attdecoder_{args.use_attention_decoder}_streaming_{args.causal}"
+    args.exp_dir = Path(exp_dir)
+
+    run_name = f"epoch_{args.num_epochs}_transducer_{args.use_transducer}_ctc_{args.use_ctc}_attdecoder_{args.use_attention_decoder}_streaming_{args.causal}"
+
+    # Initialize WandB
+    wandb.init(project="Zipformer", config=vars(args), name=run_name)
 
     world_size = args.world_size
     assert world_size >= 1
+
     if world_size > 1:
         mp.spawn(run, args=(world_size, args), nprocs=world_size, join=True)
     else:
         run(rank=0, world_size=1, args=args)
 
+    wandb.finish()
 
 torch.set_num_threads(1)
 torch.set_num_interop_threads(1)

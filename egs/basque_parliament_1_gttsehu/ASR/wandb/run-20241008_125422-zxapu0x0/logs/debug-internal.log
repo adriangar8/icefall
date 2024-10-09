@@ -1,0 +1,18 @@
+{"time":"2024-10-08T12:54:22.137403892+02:00","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-08T12:54:22.137418661+02:00","level":"INFO","msg":"created symlink","path":"/mnt/ahogpu_ldisk2/adriang/icefall/egs/basque_parliament_1_gttsehu/ASR/wandb/run-20241008_125422-zxapu0x0/logs/debug-core.log"}
+{"time":"2024-10-08T12:54:22.139291901+02:00","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-08T12:54:22.143945001+02:00","level":"INFO","msg":"created new stream","id":"zxapu0x0"}
+{"time":"2024-10-08T12:54:22.143981154+02:00","level":"INFO","msg":"stream: started","id":"zxapu0x0"}
+{"time":"2024-10-08T12:54:22.14400952+02:00","level":"INFO","msg":"handler: started","stream_id":{"value":"zxapu0x0"}}
+{"time":"2024-10-08T12:54:22.144035588+02:00","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"zxapu0x0"}}
+{"time":"2024-10-08T12:54:22.144036482+02:00","level":"INFO","msg":"sender: started","stream_id":{"value":"zxapu0x0"}}
+{"time":"2024-10-08T12:54:22.429900123+02:00","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-08T12:54:22.430932987+02:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-08T12:55:01.647990564+02:00","level":"INFO","msg":"stream: closing","id":"zxapu0x0"}
+{"time":"2024-10-08T12:55:01.648266551+02:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-08T12:55:01.649660489+02:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-08T12:55:02.385222339+02:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-08T12:55:02.592584099+02:00","level":"INFO","msg":"handler: closed","stream_id":{"value":"zxapu0x0"}}
+{"time":"2024-10-08T12:55:02.592606051+02:00","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"zxapu0x0"}}
+{"time":"2024-10-08T12:55:02.592654556+02:00","level":"INFO","msg":"sender: closed","stream_id":{"value":"zxapu0x0"}}
+{"time":"2024-10-08T12:55:02.59268743+02:00","level":"INFO","msg":"stream: closed","id":"zxapu0x0"}

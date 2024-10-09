@@ -1,0 +1,10 @@
+{"time":"2024-10-08T11:17:40.58778061+02:00","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-08T11:17:40.587818423+02:00","level":"INFO","msg":"created symlink","path":"/mnt/ahogpu_ldisk2/adriang/icefall/egs/basque_parliament_1_gttsehu/ASR/wandb/run-20241008_111740-lh4cxql3/logs/debug-core.log"}
+{"time":"2024-10-08T11:17:40.629640574+02:00","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-08T11:17:40.666932213+02:00","level":"INFO","msg":"created new stream","id":"lh4cxql3"}
+{"time":"2024-10-08T11:17:40.666954287+02:00","level":"INFO","msg":"stream: started","id":"lh4cxql3"}
+{"time":"2024-10-08T11:17:40.66696571+02:00","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"lh4cxql3"}}
+{"time":"2024-10-08T11:17:40.666986498+02:00","level":"INFO","msg":"sender: started","stream_id":{"value":"lh4cxql3"}}
+{"time":"2024-10-08T11:17:40.666978946+02:00","level":"INFO","msg":"handler: started","stream_id":{"value":"lh4cxql3"}}
+{"time":"2024-10-08T11:17:40.986835515+02:00","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-08T11:17:40.989078768+02:00","level":"INFO","msg":"Starting system monitor"}
